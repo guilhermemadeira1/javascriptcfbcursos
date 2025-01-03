@@ -1,0 +1,5 @@
+/*
+elemento.classList.toggle("classe");
+
+-> adiciona uma classe a um elemento se este não a possuir, e ao mesmo tempo remove se o elemento atual já possuir a classe.
+*/

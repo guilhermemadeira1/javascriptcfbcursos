@@ -1,0 +1,27 @@
+<!--
+Obtenção de textos de nós text 
+
+Nós de texto, dentro de elementos HTML como parágrafos, divs, etc são *objetos text*. Para obter a string de um objeto text, aplicamos a propriedade *textContent*
+
+Ex: 
+-->
+
+<html>
+<head>
+     <meta charset="UTF-8">
+</head>
+<body>
+    <div id="d1">Mensagem<div>
+   <script>
+
+      const divTexto = document.querySelector("#d1' ); //obter a div
+
+      const objTxt = divTexto.firstChild; //obter o primeiro nó filho da div
+
+      const strTxt = objTxt.textContent; //obter a string do objeto text
+
+      console.log(strTxt); //-> Mensagem
+
+</script>
+</body>
+</html>

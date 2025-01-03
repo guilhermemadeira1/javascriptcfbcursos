@@ -1,0 +1,50 @@
+/*
+Escopo de variáveis e constantes em Javascript 
+
+*Variável* -> espaço de memória RAM com valor que varia em tempo de execução.
+
+*Constante* -> espaço de memória RAM com valor que, uma vez definido, não pode ser atualizado em tempo de execução.
+
+*var* -> variável com escopo global, a variável pode ser acessada por instruções de qualquer escopo ou bloco de código. Quando uma variável var é declarada, seu escopo fica acima do escopo das outras instruções.
+      
+      if(true){
+          if(true){
+              var v = "OK";
+              console.log("Escopo3: "+v);
+          }
+          console.log("Escopo2: "+v);
+       } 
+       console.log("Escopo1: "+ v);
+
+Saída:  Escopo3: OK
+             Escopo2: OK
+             Escopo1: OK
+
+Uma variável var pode ser acessada antes de ser declarada sem erro de referência, entretanto, o valor retornado pela variável será *undefined*(não definido).
+
+     console.log(n) -> undefined
+     var n = 1;
+     console.log(n) -> 1
+
+*let* -> variável com escopo de bloco, a variável só pode ser acessada por instruções inseridas no mesmo escopo ou posterior (mais específico). 
+
+      if(true){
+          if(true){
+              let v = "OK";
+              console.log("Escopo3: "+v);
+          }
+          console.log("Escopo2: "+v);
+       } 
+       console.log("Escopo1: "+ v);
+
+Saída:  Escopo3: OK
+             ERROR! ReferenceError: "v" is not defined
+
+*const* -> constante com escopo de bloco. Assim como a variável let, uma constante em js não pode ser acessada por uma instrução inserida num bloco anterior ao escopo da mesma.
+
+Conceitos relacionados:
+
+*Erro de referência* -> Caso uma variável *let* ou *const* for acessada num escopo anterior à sua declaração, ou numa linha anterior à sua declaração, será lançado um erro de referência.
+
+*Hoisting* -> Em JavaScript, é o conceito associado ao mecanismo que define o escopo de *funções declaradas com "function" fora de outros blocos* e *variáveis var* acima do escopo das outras instruções durante a execução do programa. Esse recurso permite acessar uma função function ou variável var numa linha anteriora à sua declaração sem que ocorra erro de referência.
+*/

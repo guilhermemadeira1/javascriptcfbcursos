@@ -1,0 +1,12 @@
+/*
+Métodos getElementBy 
+
+  getElementById() -> recebe uma string com um atributo id e retorna o elemento HTML correspondente.
+
+  getElementsByClassName() -> recebe uma string com um atributo class e retorna uma HTMLCollection com todos os elementos HTML correspondentes.
+
+  getElementsByTagName() -> recebe uma string com o nome de uma tag e retorna uma HTMLCollection com todos os elementos HTML correspondentes.
+
+  getElementsByName() -> recebe uma string com um atributo name e retorna uma NodeList com todos os elementos HTML correspondentes.
+  
+*/

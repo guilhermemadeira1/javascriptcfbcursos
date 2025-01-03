@@ -1,0 +1,23 @@
+/*
+Relação dos elementos e nós no DOM
+
+
+Propriedades de elementos HTML para acesso aos nós e elementos do DOM
+
+*Node (nó)* -> Qualquer membro inserido na árvore DOM, seja um elemento HTML, texto, atributo, comentário, entre outros.
+
+*Element node*-> Nó correspondente aos elementos HTML (tags).
+
+Elementos HTML são objetos da classe HTMLElement, com métodos e propriedades que permitem operações de manipulação no DOM.
+
+*Text node* -> Nó correspondente aos textos (texto).
+
+
+Relação entre elementos e nós 
+
+Parent (Pai) -> O elemento que contém o elemento atual.
+
+Child (filho) -> Os elementos contidos pelo elemento atual.
+
+Subling (irmão) -> Elementos contidos por um parent junto ao elemento atual.
+*/

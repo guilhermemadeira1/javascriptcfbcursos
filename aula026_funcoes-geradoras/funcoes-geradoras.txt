@@ -1,0 +1,29 @@
+/*
+Funções geradoras 
+
+Funções geradoras retém um conjunto de valores e retornam um objeto iterador com métodos para acessar e iterar sobre esses valores. 
+
+Funções geradoras são declaradas com palavra chave "function*" e os valores com palavra chave "yield": 
+
+function* geradora(){
+     yield 1;  -> valor 1
+     yield 2;  -> valor 2
+     yield 3;  -> valor 3
+}
+let iterador = geradora();  -> variável iterador recebe o objeto iterador
+
+console.log("Começando geração");
+console.log(iterador.next().value);  -> 1
+console.log(iterador.next().done);  -> false
+console.log(iterador.next().value);  -> 2 
+console.log(iterador.next().value);  -> 3
+console.log(iterador.next().value);  -> 4
+console.log("Fim da geração");
+console.log(iterador.next().done);  -> true
+
+Método next() do objeto iterador retorna um objeto IteratorResult com as propriedades:
+
+value (armazena o valor atual da sequência de cada yield) 
+
+done (armazenar um valor booleano que informa se todos os valores da sequência foram gerados);
+*/

@@ -1,0 +1,28 @@
+Propriedades dpara acesso aos nós e elementos do DOM
+
+node = qualquer nó ou elemento HTML
+
+
+1. Propriedades de acesso à elementos pela árvore DOM.
+
+*node.children*-> retorna uma coleção de elementos filhos do elemento atual.
+
+*node.parentElement* -> retorna elemento pai direto do elemento atual.
+
+*node.firstElementChild* -> retorna o primeiro elemento filho do elemento atual.
+
+*node.lastElementChild* -> retorna o último elemento filho do elemento atual.
+
+
+2. Propriedades de acesso à nós pela árvore DOM.
+
+*node.childNodes* -> retorna uma coleção com todos os nós filhos do elemento atual.
+
+*node.firstChild*-> retorna o primeiro nó filho do elemento atual. 
+
+*node.lastChild* -> retorna o último nó filho do elemento atual.
+
+*node.nextSubling* -> retorna o próximo nó irmão do elemento atual.
+
+*node.previousSubling* -> retorna o nó irmão anterior do elemento atual.
+

@@ -1,0 +1,22 @@
+/*
+querySelectorAll e querySelectorAll 
+
+Os métodos de acesso do DOM querySelector e querySelectorAll retornam elementos/objetos DOM ao receberem strings com seletores CSS como id, class, tag, name e outros atributos.
+
+document.querySelector() -> retorna o primeiro elemento que corresponde ao seletor.
+  
+document.querySelectorAll() -> retorna uma NodeList com todos os elementos que correspondem ao seletor.
+
+Ex:
+
+ document.querySelector("#div1");  -> id
+
+document.querySelectorAll(".divs");  -> class
+
+document.querySelectorAll("div");  -> tag
+
+document.querySelectorAll(*"input[name='divisao']");  -> atributo name das tags input 
+
+document.querySelector("form[method = 'GET']");  -> atributo method das tags form
+
+*/

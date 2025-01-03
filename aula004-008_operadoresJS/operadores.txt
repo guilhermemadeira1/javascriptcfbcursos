@@ -1,0 +1,62 @@
+/* Operadores JS
+
+Operadores aritmeticos e sua ordem de precedência
+
+ 1° () colchetes
+ 2° ** -> expoentes 
+ 3° * / % -> multiplicação, divisão e módulo (resto da divisão inteira)
+4° + - -> adição e subtração
+
+Operadores de incremento e decremento 
+
+++ -> operador de incremento
+-- -> operador de decremento
+
++= -> atribuição com incremento
+-= -> atribuição com decremento
+*= -> atribuição com multiplicação 
+/= -> atribuição com divisão 
+%= -> atribuição com módulo 
+**= -> atribuição com expoente
+
+Operadores de comparação/relacioanais
+
+Numa operação com operadores lógicos e de comparação, os de comparação tem maior precedência que os operadores lógicos.
+
+> -> maior que 
+< -> menor que 
+>= -> maior ou igual a 
+<= -> menor ou igual a
+!= -> diferente de
+== -> igual a
+=== -> mesmo valor e mesmo tipo
+!== -> valor e tipo diferente
+
+Operadores lógicos 
+
+&& -> AND (Retorna v apenas se ambos forem v)
+|| -> OR (Retorna v se um ou mais for v)
+! -> NOT (Retorna v se f e f se for v)
+
+
+Operadores Bitwise 
+
+Comparam os valores binários dos operandos inteiros e retorna um valor equivalente ao resultado da comparação. 
+
+Nos bitwise and, or, xor e not, a comparação segue a tebela verdade de forma semelhante onde aos operadores lógicos, onde 1= true e 0 = false.
+
+& -> and (resulta 1 apenas se ambos for 1)
+| -> ou  (resulta 1 se um ou mais for 1)
+^ -> xor (resulta 1 se apenas um for 1)
+~ -> not (resulta 1 se for 0 e 0 se for 1)
+
+>> (shift right) -> move uma quantidade de bits para a direita.
+
+<< (shift left) -> move uma quantidade de bits para a esquerda.
+
+OBS: Mover 1 bit de um valor para a esquerda retorna seu dobro e mover 1 bit para a direita retorna sua metade.
+
+10 << 1 -> 20
+10 >> 1 -> 5
+ 
+*/

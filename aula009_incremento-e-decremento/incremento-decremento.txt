@@ -1,0 +1,54 @@
+/*
+Operadores de incremento, decremento, concatenação e inversão
+
+
+Operador de incremento (++)
+
+Pós incremento -> O valor incrementado só é acessível após a operação.
+
+let n = 10;
+console.log(n++);  -> 10
+console.log(n);  -> 11
+
+Pré incremento -> O valor incrementado é acessível durante e depois da operação.
+
+let n = 10;
+console.log(++n);  -> 11
+console.log(n) ;  -> 11
+
+
+Operador de decremento(--)
+
+Pós decremento -> O valor reduzido só é acessível após a operação.
+
+let n = 10;
+console.log(n--);  -> 10
+console.log(n);  -> 9
+
+Pré decremento -> O valor reduzido é acessível durante e após a operação.
+
+let n = 10;
+console.log(--n);  -> 9
+console.log(n);  -> 9
+
+
+Operador de concatenação 
+
+O operador aritmético de soma (+) quando associado a alguma string, torna-se operador de concatenação. Os valores numéricos quando concatenados são tratados como strings.
+
+console.log(10+20);  -> 30
+console.log(10+20+"");  -> "1020"
+
+
+Operador de inversão 
+
+O operador aritmético de subtração (-) quando utilizado isoladamente atua invertendo um número para seu valor invertido.
+
+let n1 = 20;
+let n2 = -1;
+
+console.log(n1 - 5);  -> 15
+console.log(-(n1 -5));   -> -15
+console.log(-n1)  -> -20
+console.log(-n2);  -> 1
+*/

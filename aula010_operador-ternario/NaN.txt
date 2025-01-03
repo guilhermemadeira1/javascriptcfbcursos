@@ -1,0 +1,17 @@
+/*
+*NaN* > Valor retornado quando uma operação matemática não pode ser realizada (como Math.sqrt(-1) ) e quando uma string não numérica é convertida em número ou inserida numa operação matemática.
+
+Os operadores de igualdade (== e ===) retornam *false* sempre quando comparam um valor qualquer com um NaN, mesmo com outro NaN. 
+
+Os operadores de diferença (!= e !==) sempre retornam *true* quando comparados com um NaN, mesmo com outro NaN.
+
+Ex: Math.sqrt(-1)  -> NaN
+      12/"a"  -> NaN
+       NaN == 10  -> false
+       NaN === -1  -> false 
+       NaN == NaN  -> false
+
+       NaN != 10  -> true
+       NaN != -1  -> true
+       NaN != NaN  -> true
+*/
