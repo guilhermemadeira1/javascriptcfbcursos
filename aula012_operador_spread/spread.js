@@ -7,7 +7,7 @@ Operador spread
 
 Ex:  let v1 = [1, 2, 3];
        let v2 = [4, 5, 6];
-       let v3 = [ *...v1*,*...v3*, 7, 8];
+       let v3 = [ ...v1, ...v2, 7, 8];
 
       console.log(v3); 
 
@@ -58,4 +58,4 @@ console.log(obj3); //{a: 1, b:2, c:3, d:4}
 
 let vetor = [5,5,5];
 let somar3 = (n1,n2,n3) =>{return n1+n2+n3};
-console.log(somar3(...vetor)); // 15 
+console.log(somar3(...vetor)); // 15

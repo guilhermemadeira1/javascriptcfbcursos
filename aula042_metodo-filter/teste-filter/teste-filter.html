@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste filter</title>
+    <link rel="stylesheet" src="teste-filter.css">
+</head>
+<body>
+    <div class="conteiner">
+        <h1>Nome do curso</h1>
+        <input type="button" value="Curso selecionado" class="btn" id="btn-select">
+    </div>
+    <div class="conteiner conteiner2">
+        <div class="curso">
+            <label for="opt1">Javascript</label>
+            <input type="radio" name="opt" id="opt1">
+        </div>
+        <div class="curso">
+            <label for="opt2">PHP</label>        
+            <input type="radio" name="opt" id="opt2">       
+        </div>
+        <div class="curso">
+            <label for="op3">Java</label>
+            <input type="radio" name="opt" id="opt3">          
+        </div>
+        <div class="curso">
+            <label for="opt4">MySQL</label>         
+            <input type="radio" name="opt" id="opt4">          
+        </div>
+        <div class="curso">
+            <label for="opt5">React</label>         
+            <input type="radio" name="opt" id="opt5">      
+        </div>
+    </div>
+</body>
+<script>
+    const btnSelect = document.querySelector("#btn-select");
+    const cursoConteiners = document.querySelectorAll(".curso");
+
+    cursoConteiners.forEach(conteiner =>{
+        conteiner.addEventListener("click", (evt)=>{
+            const radio = conteiner.querySelector("input[type='radio']");
+            radio.checked = true;
+        })
+    });
+    btnSelect.addEventListener("click", (evt)=>{
+        const radios = [...document.querySelectorAll("input[type=radio]")]; // converte NodeList em Array.
+        const checkedRadio = radios.filter((radio)=>radio.checked)[0]; // filter retorna um array com um radio.
+        if(checkedRadio){
+            const cursoTxt = checkedRadio.parentNode.firstElementChild.firstChild.textContent; // o texto é um objectText, usa-se a propriedade textContent pra obter sua string.
+            window.alert('Curso selecionado: '+cursoTxt);
+        }
+        else{
+            window.alert('Nenhum curso foi selecionado.');
+        }
+    });
+</script>
+</html>

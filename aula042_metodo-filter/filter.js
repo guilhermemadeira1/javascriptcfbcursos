@@ -1,7 +1,7 @@
 /*
 Método filter 
 
-Método exclusivo para arrays (objetos da classe Array.prototype) que recebe uma função callback filtradora e retorna um novo array com os elementos filtrados do array atual. 
+Método exclusivo para arrays (objetos da classe Array.prototype) que recebe uma função callback filtradora e retorna um novo array com os elementos filtrados do array original. 
 
 O filtro é estabelecido com base na expressão lógica de retorno da função filtradora, que avalia e seleciona os elementos que atendem à condição. 
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste inserção</title>
+    <link rel="stylesheet" href="teste-insercao.css">
+</head>
+<body>
+    <div class="conteiner conteiner-entradas">
+        <h1>Lista de cursos</h1>
+        <label for="input-nome">Inserir curso: </label>
+        <input type="text" id="input-nome">
+        <input type="button" value="inserir" class="btn" id="btn-insert">
+        <input type="button" value="Inserir antes de" class="btn" id="btn-insert-before">
+        <input type="button" value="Inserir depois de" class="btn" id="btn-insert-after">
+        <input type="button" value="Curso selecionado" class="btn" id="btn-select">
+        <input type="button" value="Remover" class="btn" id="btn-remove">
+    </div>
+    <div class="conteiner conteiner-cursos"></div>
+</body>
+<script>
+    const btnSelect = document.querySelector("#btn-select");
+    const btnRemove = document.querySelector("#btn-remove");
+    const btnInsert =  document.querySelector("#btn-insert");
+    const btnInsertBefore = document.querySelector("#btn-insert-before");
+    const btnInsertAfter = document.querySelector("#btn-insert-after");
+  
+    const conteiners = document.querySelectorAll(".curso");
+    const conteinerCursos = document.querySelector(".conteiner-cursos");
+    const cursos = ["Javascript","PHP", "Java", "MySQL", "React"];
+
+    const createCurso = (nome, index) =>{
+        const divCurso = document.createElement("div");
+        const label = document.createElement("label");
+        const radio = document.createElement("input");
+        const radioId = "opt"+(index+1);
+
+        divCurso.setAttribute("class", "curso");
+        radio.setAttribute("type", "radio")
+        radio.setAttribute("name","opt");
+        radio.setAttribute("id", radioId);
+        label.setAttribute("for",radioId);
+        label.textContent = nome;
+
+        divCurso.appendChild(radio);
+        divCurso.appendChild(label);
+        divCurso.addEventListener("click", (evt)=>{
+            //marca o radio ao clicar no conteiner
+            //evt.target -> elemento alvo do evento, a div curso no caso
+            const radio = evt.target.querySelector("input[type='radio']");
+            radio.checked = true;
+        });
+        return divCurso;
+    }
+
+    cursos.map((curso, index)=>{
+        conteinerCursos.appendChild(createCurso(curso, index));
+    });
+
+    const getCheckedRadio = ()=>{
+        const radios = [...document.querySelectorAll("input[type='radio']")]; // converte NodeList em Array.
+        const checkedRadio = radios.filter((radio)=>radio.checked)[0];
+        // filter retorna um array com apenas um radio
+        return checkedRadio;
+    }
+
+    btnSelect.addEventListener("click", (evt)=>{
+        const checkedRadio = getCheckedRadio(); 
+        if(checkedRadio){
+            const cursoTxt = getCheckedRadio().nextElementSibling.textContent;// o texto do label é um DOM node do tipo objectText, usa-se a propriedade textContent pra obter sua string.
+
+            window.alert('Curso selecionado: ' + cursoTxt);
+        }
+        else{
+            window.alert('Nenhum curso foi selecionado.');
+        }
+    });
+
+    btnRemove.addEventListener("click", (evt)=>{
+        const checkedRadio = getCheckedRadio();
+        if(checkedRadio){
+            checkedRadio.parentElement.remove();
+        }
+        else{
+            window.alert('Selecione um curso para remover.');
+        }
+    });
+
+    btnInsert.addEventListener("click", (evt)=>{
+        const nomeCurso = document.querySelector("#input-nome").value;
+        if(nomeCurso){
+            conteinerCursos.appendChild(createCurso(nomeCurso, cursos.length));
+            cursos.push(nomeCurso);   
+        }
+        else{
+            window.alert("Insira o nome do curso");
+        }
+    });
+    
+    btnInsertBefore.addEventListener("click", (evt)=>{
+        try{
+            const cursoRef = getCheckedRadio().parentElement;
+            const nomeCurso =  document.querySelector("#input-nome").value;
+            if(nomeCurso){
+                conteinerCursos.insertBefore(createCurso(nomeCurso, cursos.length),cursoRef);
+                cursos.push(nomeCurso);
+            }
+            else{
+                window.alert("Insira o nome do curso.");
+            }
+        }
+        catch{
+            window.alert("Nenhum curso foi selecionado");
+        }
+    });
+
+    btnInsertAfter.addEventListener("click", (evt)=>{
+        try{
+            const cursoRefNext = getCheckedRadio().parentElement.nextSibling;
+            const nomeCurso = document.querySelector("#input-nome").value;
+            if(nomeCurso){
+                conteinerCursos.insertBefore(createCurso(nomeCurso, cursos.length), cursoRefNext);
+                cursos.push(nomeCurso);
+            }
+            else{
+                window.alert("Insira o nome do curso");
+            }
+        }
+        catch{
+            window.alert("Nenhum curso foi selecionado.");
+        }
+    });
+</script>
+</html>
