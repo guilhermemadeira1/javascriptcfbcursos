@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,main{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0d0d1a;
+}
+main{
+    margin: auto;
+    max-width: 600px;
+    display: grid;
+    grid-template-rows: 1.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "entradas cursos"
+                         "busca busca";
+}
+h1{
+    text-align: center;
+    margin-bottom: 15px;
+    color: #101029;
+}
+.entrada{
+    border: solid 2px #101029;
+    background-color: #e3e3ff;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+    max-width: 150px;
+}
+.conteiner{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #282864;
+    background-image: linear-gradient(to top, #6e6eac, #e3e3ff);
+}
+.conteiner-entradas{
+    grid-area: entradas;
+}
+.conteiner-cursos{
+    grid-area: cursos;
+    overflow-y: auto; /*adiciona barra vertical se o conteudo ultrapassar a borda*/
+}
+.conteiner-busca{
+    grid-area: busca;
+    flex-flow: row wrap;
+}
+#resultado-busca{
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+}
+.curso{
+    text-align: center;
+    background-color: gray;
+    border: solid 2px #464444;
+    padding: 10px;
+    width: 80%;
+    margin: 3px;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s ease;
+}
+.curso-selecionado{
+    background-color: #fcfc76;
+}
+.curso:hover{
+    transform: translateX(2px);
+    background-color: #aaa9a9;
+}
+.curso-selecionado:hover{
+    background-color: #fcfc76;
+}
+.btn{
+    background-color: #282864;
+    color: white;
+    border-style: none;
+    width: 150px;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 5px;
+    transition: background-color 0.5s ease;
+}
+.btn:hover{
+    background-color: #282864a6;
+}
+.btn:active{
+    background-color: #f0f098;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste metodo toggle</title>
+    <link rel="stylesheet" href="teste-toggle.css">
+</head>
+<body>
+    <div class="conteiner conteiner-entradas">
+        <h1>Lista de cursos</h1>
+        <label for="input-nome">Inserir curso: </label>
+        <input type="text" id="input-nome">
+        <input type="button" value="inserir" class="btn" id="btn-insert">
+        <input type="button" value="Inserir antes de" class="btn" id="btn-insert-before">
+        <input type="button" value="Inserir depois de" class="btn" id="btn-insert-after">
+        <input type="button" value="Curso selecionado" class="btn" id="btn-select">
+        <input type="button" value="Remover" class="btn" id="btn-remove">
+    </div>
+    <div class="conteiner conteiner-cursos"></div>
+</body>
+<script>
+    const btnSelect = document.querySelector("#btn-select");
+    const btnRemove = document.querySelector("#btn-remove");
+    const btnInsert =  document.querySelector("#btn-insert");
+    const btnInsertBefore = document.querySelector("#btn-insert-before");
+    const btnInsertAfter = document.querySelector("#btn-insert-after");
+  
+    const conteiners = document.querySelectorAll(".curso");
+    const conteinerCursos = document.querySelector(".conteiner-cursos");
+    const cursos = ["Javascript","PHP", "Java", "MySQL", "React"];
+
+    const createCurso = (nome) =>{
+        const divCurso = document.createElement("div");
+        divCurso.setAttribute("class", "curso");
+        divCurso.innerHTML = nome;
+
+        divCurso.addEventListener("click", (evt)=>{
+            const todosSelecionados = [...document.querySelectorAll(".curso-selecionado")];
+            todosSelecionados.map((selecionado)=>{
+                //remove a classe selecionado dos outros cursos antes de usar o toggle para evitar que mais de um seja selecionado
+                selecionado.classList.remove("curso-selecionado");
+            });
+            evt.target.classList.toggle("curso-selecionado");
+        });
+        return divCurso;
+    }
+
+    cursos.map((curso)=>{
+        conteinerCursos.appendChild(createCurso(curso));
+    });
+
+    const getCursoSelecionado = ()=>{
+        return [...document.querySelectorAll(".curso-selecionado")][0];
+
+    };
+   
+    btnSelect.addEventListener("click", (evt)=>{
+        const selecionado = getCursoSelecionado(); 
+        if(selecionado){
+            const cursoTxt = selecionado.firstChild.textContent;// o texto é um DOM node do tipo objectText, usa-se a propriedade textContent pra obter sua string.
+            window.alert('Curso selecionado: ' + cursoTxt);
+        }
+        else{
+            window.alert('Nenhum curso foi selecionado.');
+        }
+    });
+
+    btnRemove.addEventListener("click", (evt)=>{
+        const cursoSelecionado = getCursoSelecionado();
+        if(cursoSelecionado){
+           cursoSelecionado.remove();
+           console.log(cursos);
+        }
+        else{
+            window.alert('Selecione um curso para remover.');
+        }
+    });
+
+    btnInsert.addEventListener("click", (evt)=>{
+        const nomeCurso = document.querySelector("#input-nome").value;
+        if(nomeCurso){
+            conteinerCursos.appendChild(createCurso(nomeCurso));
+            cursos.push(nomeCurso);
+            console.log(cursos);
+        }
+        else{
+            window.alert("Insira o nome do curso");
+        }
+    });
+    
+    btnInsertBefore.addEventListener("click", (evt)=>{
+        try{
+            const cursoRef = getCursoSelecionado();
+            const nomeCurso =  document.querySelector("#input-nome").value;
+            if(nomeCurso){
+                conteinerCursos.insertBefore(createCurso(nomeCurso), cursoRef);
+                cursos.push(nomeCurso);
+                console.log(cursos);
+            }
+            else{
+                window.alert("Insira o nome do curso.");
+            }
+        }
+        catch{
+            window.alert("Nenhum curso foi selecionado");
+        }
+    });
+
+    btnInsertAfter.addEventListener("click", (evt)=>{
+        try{
+            const cursoRefNext = getCursoSelecionado().nextSibling;
+            const nomeCurso = document.querySelector("#input-nome").value;
+            if(nomeCurso){
+                conteinerCursos.insertBefore(createCurso(nomeCurso), cursoRefNext);
+                cursos.push(nomeCurso);
+                console.log(cursos);
+            }
+            else{
+                window.alert("Insira o nome do curso");
+            }
+        }
+        catch{
+            window.alert("Nenhum curso foi selecionado.");
+        }
+    });
+</script>
+</html>

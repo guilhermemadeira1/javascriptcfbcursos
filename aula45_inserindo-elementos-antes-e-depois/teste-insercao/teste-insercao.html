@@ -11,30 +11,30 @@
         <h1>Lista de cursos</h1>
         <label for="input-nome">Inserir curso: </label>
         <input type="text" id="input-nome">
-        <input type="button" value="inserir" class="btn" id="btn-insert">
-        <input type="button" value="Inserir antes de" class="btn" id="btn-insert-before">
-        <input type="button" value="Inserir depois de" class="btn" id="btn-insert-after">
-        <input type="button" value="Curso selecionado" class="btn" id="btn-select">
-        <input type="button" value="Remover" class="btn" id="btn-remove">
+        <input type="button" value="inserir" class="btn" id="btn-inserir">
+        <input type="button" value="Inserir antes de" class="btn" id="btn-inserir-antes">
+        <input type="button" value="Inserir depois de" class="btn" id="btn-inserir-depois">
+        <input type="button" value="Curso selecionado" class="btn" id="btn-selecionar">
+        <input type="button" value="Remover" class="btn" id="btn-remover">
     </div>
     <div class="conteiner conteiner-cursos"></div>
 </body>
 <script>
-    const btnSelect = document.querySelector("#btn-select");
-    const btnRemove = document.querySelector("#btn-remove");
-    const btnInsert =  document.querySelector("#btn-insert");
-    const btnInsertBefore = document.querySelector("#btn-insert-before");
-    const btnInsertAfter = document.querySelector("#btn-insert-after");
+    const btnSelecionar = document.querySelector("#btn-selecionar");
+    const btnRemover = document.querySelector("#btn-remover");
+    const btnInserir =  document.querySelector("#btn-inserir");
+    const btnInserirAntes = document.querySelector("#btn-inserir-antes");
+    const btnInserirDepois= document.querySelector("#btn-inserir-depois");
   
     const conteiners = document.querySelectorAll(".curso");
     const conteinerCursos = document.querySelector(".conteiner-cursos");
     const cursos = ["Javascript","PHP", "Java", "MySQL", "React"];
 
-    const createCurso = (nome, index) =>{
+    const criarCurso = (nome, indice) =>{
         const divCurso = document.createElement("div");
         const label = document.createElement("label");
         const radio = document.createElement("input");
-        const radioId = "opt"+(index+1);
+        const radioId = "opt"+(indice+1);
 
         divCurso.setAttribute("class", "curso");
         radio.setAttribute("type", "radio")
@@ -54,21 +54,21 @@
         return divCurso;
     }
 
-    cursos.map((curso, index)=>{
-        conteinerCursos.appendChild(createCurso(curso, index));
+    cursos.map((curso, i)=>{
+        conteinerCursos.appendChild(criarCurso(curso, i));
     });
 
-    const getCheckedRadio = ()=>{
+    const obterRadioSelecionado = ()=>{
         const radios = [...document.querySelectorAll("input[type='radio']")]; // converte NodeList em Array.
-        const checkedRadio = radios.filter((radio)=>radio.checked)[0];
+        const radioSelecionado = radios.filter((radio)=>radio.checked)[0];
         // filter retorna um array com apenas um radio
-        return checkedRadio;
+        return radioSelecionado;
     }
 
-    btnSelect.addEventListener("click", (evt)=>{
-        const checkedRadio = getCheckedRadio(); 
-        if(checkedRadio){
-            const cursoTxt = getCheckedRadio().nextElementSibling.textContent;// o texto do label é um DOM node do tipo objectText, usa-se a propriedade textContent pra obter sua string.
+    btnSelecionar.addEventListener("click", (evt)=>{
+        const radioSelecionado = obterRadioSelecionado(); 
+        if(radioSelecionado){
+            const cursoTxt = radioSelecionado.nextElementSibling.textContent;// o texto do label é um DOM node do tipo objectText, usa-se a propriedade textContent pra obter sua string.
 
             window.alert('Curso selecionado: ' + cursoTxt);
         }
@@ -77,34 +77,45 @@
         }
     });
 
-    btnRemove.addEventListener("click", (evt)=>{
-        const checkedRadio = getCheckedRadio();
-        if(checkedRadio){
-            checkedRadio.parentElement.remove();
+    btnRemover.addEventListener("click", (evt)=>{
+        const radioSelecionado = obterRadioSelecionado();
+        if(radioSelecionado){
+            radioSelecionado.parentElement.remove();
         }
         else{
             window.alert('Selecione um curso para remover.');
         }
     });
 
-    btnInsert.addEventListener("click", (evt)=>{
+    btnInserir.addEventListener("click", (evt)=>{
         const nomeCurso = document.querySelector("#input-nome").value;
         if(nomeCurso){
-            conteinerCursos.appendChild(createCurso(nomeCurso, cursos.length));
-            cursos.push(nomeCurso);   
+            if(!cursos.includes(nomeCurso)){
+                conteinerCursos.appendChild(criarCurso(nomeCurso, cursos.length));
+                cursos.push(nomeCurso);   
+            }
+            else{
+                window.alert("O curso já existe na lista.");
+            }
+            
         }
         else{
             window.alert("Insira o nome do curso");
         }
     });
     
-    btnInsertBefore.addEventListener("click", (evt)=>{
+    btnInserirAntes.addEventListener("click", (evt)=>{
         try{
-            const cursoRef = getCheckedRadio().parentElement;
+            const cursoRef = obterRadioSelecionado().parentElement;
             const nomeCurso =  document.querySelector("#input-nome").value;
             if(nomeCurso){
-                conteinerCursos.insertBefore(createCurso(nomeCurso, cursos.length),cursoRef);
-                cursos.push(nomeCurso);
+                if(!cursos.includes(nomeCurso)){
+                    conteinerCursos.insertBefore(criarCurso(nomeCurso, cursos.length),cursoRef);
+                    cursos.push(nomeCurso);
+                }
+                else{
+                    window.alert("O curso já existe na lista.");
+                }
             }
             else{
                 window.alert("Insira o nome do curso.");
@@ -115,13 +126,18 @@
         }
     });
 
-    btnInsertAfter.addEventListener("click", (evt)=>{
+    btnInserirDepois.addEventListener("click", (evt)=>{
         try{
-            const cursoRefNext = getCheckedRadio().parentElement.nextSibling;
+            const cursoRefProx = obterRadioSelecionado().parentElement.nextSibling;
             const nomeCurso = document.querySelector("#input-nome").value;
             if(nomeCurso){
-                conteinerCursos.insertBefore(createCurso(nomeCurso, cursos.length), cursoRefNext);
-                cursos.push(nomeCurso);
+                if(!cursos.includes(nomeCurso)){
+                    conteinerCursos.insertBefore(criarCurso(nomeCurso, cursos.length), cursoRefProx);
+                    cursos.push(nomeCurso);
+                }
+                else{
+                    window.alert("O curso já existe na lista.");
+                }
             }
             else{
                 window.alert("Insira o nome do curso");

@@ -2,7 +2,7 @@
 Em JS, funções podem ser utilizadas como classes, por isso podemos criar objetos 
 e acessar seus atributos e métodos pelo operador this.
 
-O operador this referencia o objeto atual que chama uma funcão ou acessa uma propriedade.
+O operador this referencia o objeto atual que executa a função ou acessa uma propriedade.
 
 setTimeout(função, tempo-de-espera); -> executa um bloco de código após um tempo determinado em milisegundos, onde 1000 = 1 segundo.
 

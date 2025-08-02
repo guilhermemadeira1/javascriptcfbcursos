@@ -1,9 +1,9 @@
 /* 
 for in -> Itera sobre os índices de vetores e valores chave de objetos. Os índices e chaves são tratados como strings */
 
-let nums = [1,2,3]
+let nums1 = [1,2,3]
 
-for(i in nums){
+for(i in nums1){
     console.log(i+" "+typeof(i))
 }
 
@@ -13,9 +13,9 @@ for(i in nums){
 
 for of -> Itera sobre os elementos de coleções.*/
 
-let nums = [1,2,3]
+let nums2 = [1,2,3]
 
-for(n of nums){
+for(n of nums2){
     console.log(n+""+typeof(n));
 }
 /*

@@ -36,14 +36,14 @@ Operadores lógicos
 
 && -> AND (Retorna v apenas se ambos forem v)
 || -> OR (Retorna v se um ou mais for v)
-! -> NOT (Retorna v se f e f se for v)
+! -> NOT (Retorna v se for f e f se for v)
 
 
 Operadores Bitwise 
 
 Comparam os valores binários dos operandos inteiros e retorna um valor equivalente ao resultado da comparação. 
 
-Nos bitwise and, or, xor e not, a comparação segue a tebela verdade de forma semelhante onde aos operadores lógicos, onde 1= true e 0 = false.
+Nos bitwise and, or, xor e not, a comparação segue a tebela verdade de forma semelhante aos operadores lógicos, onde 1= true e 0 = false.
 
 & -> and (resulta 1 apenas se ambos for 1)
 | -> ou  (resulta 1 se um ou mais for 1)

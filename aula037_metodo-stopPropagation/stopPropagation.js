@@ -1,7 +1,7 @@
 /*
 Método stopPropagation 
 
-Quando um evento é disparado sobre um elemento contêiner, o evento também é propagado para outros elementos na árvore DOM. O método *stopPropagation()* pertencente ao objeto do evento atual, permite interromper a propagação do evento sempre que este for disparado por um elemento.
+Quando um evento é disparado sobre um elemento contêiner, o evento também é propagado para outros elementos na árvore DOM. O método *stopPropagation()*, executado pelo objeto que dispara o evento, permite interromper a propagação do evento para os filhos sempre que este for disparado.
 
 Ex: 
 */
@@ -13,7 +13,7 @@ lista.addEventListener("click", (evt)=>{
     console.log('O contêiner "lista" foi clicado');
 });
 
-itensLista.map((item)=>{
+itensLista.forEach((item)=>{
    item.addEventListener("click",(evt)=>{
     evt.stopPropagation();
    });
