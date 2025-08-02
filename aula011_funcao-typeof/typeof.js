@@ -17,4 +17,4 @@ Função *typeof(valor)* retorna uma string que corresponde ao tipo de um valor,
 
 //programa que verifica se o valor é um número 
 let n = Number(prompt("Digite um numero: "));
-typeof(n)== "number" && !(isNaN(n))? console.log("É um número"): console.log("Não é um número");
+typeof(n) == "number" && !(isNaN(n))? console.log("É um número"): console.log("Não é um número");

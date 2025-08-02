@@ -20,7 +20,7 @@ Os valores de cada vetor são concatenados e unidos aos valores do novo vetor (s
 
 Ex:  let obj1 = {a: 2, b: 2, c:3};
        let obj2 = {a: 1, b: 2, d: 4};
-       let ob3 = { *...obj1*, *... obj2* };
+       let ob3 = { ...obj1, ... obj2 };
 
       console.log(obj3);
 
@@ -37,7 +37,7 @@ Ex:  let vetor = [5,5,5]
        let somar3 = function  (n1,n2,n3){
         return n1+n2+n3; 
        }
-      console.log(somar3(*...vetor*)); 
+      console.log(somar3(...vetor)); 
 
       Saída:  15
 

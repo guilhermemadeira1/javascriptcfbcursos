@@ -44,7 +44,7 @@ Saída:  Escopo3: OK
 
 Conceitos relacionados:
 
-*Erro de referência* -> Caso uma variável *let* ou *const* for acessada num escopo anterior à sua declaração, ou numa linha anterior à sua declaração, será lançado um erro de referência.
+*Erro de referência* -> Caso uma variável *let* ou *const* for acessada num escopo anterior ou numa linha anterior à sua declaração, será lançado um erro de referência.
 
 *Hoisting* -> Em JavaScript, é o conceito associado ao mecanismo que define o escopo de *funções declaradas com "function" fora de outros blocos* e *variáveis var* acima do escopo das outras instruções durante a execução do programa. Esse recurso permite acessar uma função function ou variável var numa linha anteriora à sua declaração sem que ocorra erro de referência.
 */

@@ -8,6 +8,7 @@ function soma(...valores) {
     for (n of valores) {
         soma += n;
     }
+    return soma;
 }
 console.log(soma(2, 2)); //-> 4
 console.log(soma(5, 5, 5)); //-> 15

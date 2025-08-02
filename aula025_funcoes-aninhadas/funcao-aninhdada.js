@@ -1,10 +1,9 @@
 //Função aninhada 
 
-const somar = (...valores){
+const somar = (...valores)=>{
 
     let result = 0;
-    const soma = (vetorVal){
-
+    const soma = (vetorVal)=>{
        for(v of vetorVal) result += v;
        return result;
       }

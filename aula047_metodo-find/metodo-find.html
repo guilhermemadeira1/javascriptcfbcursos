@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo find</title>
+    <style>
+        .caixa{
+            border: solid 3px;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 3px;
+        }
+        .azul{
+            background-color: #a7a7eb;
+            color: #050546;
+        }
+        .verde{
+            background-color: #a9e6a9;
+            color: #044104;
+        }
+        .vermelha{
+            background-color: #dfa1a1;
+            color: #520606;
+        }
+        .btn{
+            border-style: none;
+            background-color: #050546;
+            border-radius: 5px;
+            color: white;
+            padding: 5px;
+        }
+        .btn:active{
+            background-color: #0f0f6698;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa verde">
+        Array:
+    </div>
+    <div class="caixa azul">
+        <label for="input-num">Buscar: </label>
+        <input type="number" id="input-num">
+        <button onclick="buscar()" class="btn">Pesquisar</button>
+    </div>
+    <div class="caixa vermelha">Resultado:</div>
+</body>
+<script>
+    const array = [2,5,3,6,1,8,9,10];
+    const caixaArray = document.querySelector(".verde");
+    const caixaResult = document.querySelector(".vermelha");
+    caixaArray.innerHTML += "[" + array + "]";
+    const inputNum = document.querySelector("#input-num");
+
+    function buscar(){
+        const valorBuscado = Number(inputNum.value);
+        console.log(valorBuscado);
+        const valorEncontrado = array.find(num => num === valorBuscado);
+
+        if(inputNum.value === ""){
+            window.alert("Digite um valor");
+        }
+        else if(valorEncontrado){
+            caixaResult.innerText = "Resultado: Valor " + valorEncontrado + " encontrado no array."; 
+        }else{
+            caixaResult.innerText = "Resultado: Valor não encontrado no array."
+        }
+    }
+</script>
+</html>

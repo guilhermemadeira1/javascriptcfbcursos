@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste metodo find</title>
+    <link rel="stylesheet" href="teste-find.css">
+</head>
+<body>
+    <main>
+        <div class="conteiner conteiner-entradas">
+            <h1>Lista de cursos</h1>
+            <label for="input-nome">Inserir curso: </label>
+            <input type="text" id="input-nome" class="entrada">
+            <input type="button" value="Inserir" class="btn" id="btn-inserir">
+            <input type="button" value="Inserir antes de" class="btn" id="btn-inserir-antes">
+            <input type="button" value="Inserir depois de" class="btn" id="btn-inserir-depois">
+            <input type="button" value="Selecionar" class="btn" id="btn-selecionar">
+            <input type="button" value="Remover" class="btn" id="btn-remover">
+        </div>
+        <div class="conteiner conteiner-cursos"></div>
+        <div class="conteiner conteiner-busca">
+            <label for="input-busca">Buscar curso: </label>
+            <input type="text" id="input-busca" class="entrada">
+            <input type="button" value="buscar" id="btn-busca" class="btn">
+            <div id="resultado-busca">
+                Resultado.
+            </div>
+        </div>
+    </main>
+</body>
+<script src="teste-find.js"></script>
+</html>

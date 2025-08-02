@@ -2,6 +2,8 @@
    <elemento>.remove() -> remove um elemento do DOM.Não retorna o elemento removido.
 
    <parent>.removeChild(<child>) -> remove um elemento filho específico de um elemento. Retorna o elemento removido.
+
+   OBS: Não confundir element.remove() com element.classList.remove(), o segundo remove uma classe específica de um elemento.
 */
 const filho = document.getElementById("elemento").removeChild(document.getElementById("filho"));
 

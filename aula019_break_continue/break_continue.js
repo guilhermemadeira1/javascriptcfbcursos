@@ -12,18 +12,17 @@ Ex:*/
 let nums = [1,2,3,4,5,6,7,8];
 
 function exibePares(vetor){
-
   for (index in nums){
-
      if (typeof(nums[index]) != 'number'{
          break;
-    }
-    else if (num[Index] % 2 == 0){
+     }
+     else if (num[Index] % 2 == 0){
           console.log(nums[index]);
      }
      else{
           continue;
      }
+  }
 }
 exibePares(nums);  //-> 2,4,6,8
 

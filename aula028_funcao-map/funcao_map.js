@@ -1,7 +1,7 @@
 /*
 Função map
 
-O map() é uma função do objeto Array.prototype utilizada para criar um novo array ao mapear os elementos de outro já existente. Na prática, map() recebe como argumento uma função mapeadora e a aplica para cada elemento do array que o chama, e por fim, armazena os valores retornados num novo array.
+O map() é uma função do objeto Array.prototype utilizada para criar um novo array ao mapear os elementos de outro já existente. Na prática, map() recebe como argumento uma função mapeadora e a aplica para cada elemento do array que a executa, e por fim, armazena os valores retornados num novo array.
 
 A função mapeadora pode receber até três argumentos: o elemento atual, índice do elemento atual e o vetor de origem. 
 
