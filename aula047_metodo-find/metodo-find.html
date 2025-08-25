@@ -56,16 +56,21 @@
     function buscar(){
         const valorBuscado = Number(inputNum.value);
         console.log(valorBuscado);
-        const valorEncontrado = array.find(num => num === valorBuscado);
 
         if(inputNum.value === ""){
             window.alert("Digite um valor");
-        }
-        else if(valorEncontrado){
-            caixaResult.innerText = "Resultado: Valor " + valorEncontrado + " encontrado no array."; 
-        }else{
-            caixaResult.innerText = "Resultado: Valor não encontrado no array."
-        }
+        }   
+
+        caixaResult.innerText = "Resultado: Valor não encontrado no array."
+
+        const valorEncontrado = array.find((num, indice) => {
+            if(num === valorBuscado){
+                caixaResult.innerText = `Resultado: Valor ${valorEncontrado} encontrado na posição ${indice} array.`; 
+            }
+            return num === valorBuscado;
+        });
+
+       
     }
 </script>
 </html>

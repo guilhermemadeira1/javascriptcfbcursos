@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<style>
+    html, body{
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif; 
+    }
+    body{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
+    .caixa-calculadora{
+        width: 250px;
+        background-color: #6a887e;
+    }
+    input[type="number"], .resultado{
+        display: block;
+        background-color: lightgray;
+        text-align: center;
+        padding: 5px;
+        border-style: none;
+        width: 80%;
+    }
+    button{
+        border-style: none;
+        padding: 5px;
+        width: 30px;
+    }
+    button:active{
+        background-color: #f0f069
+    }
+    div{
+        margin: 20px;
+        width: 100%;
+    }
+</style>
+<body> 
+    <main class="caixa-calculadora">
+        <div class="entrada">
+            <label for="val1">Valor 1: </label>
+            <input type="number" id="val1">
+        </div>
+        <div class="entrada">
+            <label for="val2">Valor 2: </label>
+            <input type="number" id="val2">
+        </div>
+        <div>
+            <p>Resultado: </p>
+            <span class="resultado" id="result">...</span>
+        </div>
+        <div class="operacoes">
+            <button id="btn-soma">+</button>
+            <button id="btn-sub">-</button>
+            <button id="btn-multi">x</button>
+            <button id="btn-div">/</button>
+        </div>
+    </main>
+</body>
+<script>
+    const resultado = document.querySelector("#result");
+    const btnSoma = document.querySelector("#btn-soma");
+    const btnSub = document.querySelector("#btn-sub");
+    const btnMulti = document.querySelector("#btn-multi");
+    const btnDiv = document.querySelector("#btn-div");
+
+    const operacoes = [
+        ()=>{
+            const val1 = Number(document.querySelector("#val1").value);
+            const val2 = Number(document.querySelector("#val2").value);
+            resultado.innerHTML = val1 + val2;
+        },
+        ()=>{
+            const val1 = Number(document.querySelector("#val1").value);
+            const val2 = Number(document.querySelector("#val2").value);
+            resultado.innerHTML = val1 - val2;
+        },
+        ()=>{
+            const val1 = Number(document.querySelector("#val1").value);
+            const val2 = Number(document.querySelector("#val2").value);
+            resultado.innerHTML = val1 * val2;
+        },
+        ()=>{
+            const val1 = Number(document.querySelector("#val1").value);
+            const val2 = Number(document.querySelector("#val2").value);
+            resultado.innerHTML = val1 / val2;
+        }
+    ];
+    btnSoma.addEventListener("click", operacoes[0]);
+    btnSub.addEventListener("click", operacoes[1]);
+    btnMulti.addEventListener("click", operacoes[2]);
+    btnDiv.addEventListener("click", operacoes[3]); 
+</script>
+</html>

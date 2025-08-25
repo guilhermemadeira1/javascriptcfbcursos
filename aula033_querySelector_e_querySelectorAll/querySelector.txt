@@ -15,7 +15,7 @@ document.querySelectorAll(".divs");  -> class
 
 document.querySelectorAll("div");  -> tag
 
-document.querySelectorAll(*"input[name='divisao']");  -> atributo name das tags input 
+document.querySelectorAll("input[name='divisao']");  -> atributo name das tags input 
 
 document.querySelector("form[method = 'GET']");  -> atributo method das tags form
 

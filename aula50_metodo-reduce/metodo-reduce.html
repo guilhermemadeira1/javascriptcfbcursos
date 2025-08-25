@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo reduce</title>
+    <style>
+        .caixa{
+            border: solid 3px;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 3px;
+        }
+        .azul{
+            background-color: #a7a7eb;
+            color: #050546;
+        }
+        .verde{
+            background-color: #a9e6a9;
+            color: #044104;
+        }
+        .vermelha{
+            background-color: #dfa1a1;
+            color: #520606;
+        }
+        .btn{
+            border-style: none;
+            background-color: #050546;
+            border-radius: 5px;
+            color: white;
+            padding: 5px;
+        }
+        .btn:active{
+            background-color: #0f0f6698;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa verde">
+        <input type="number" min="0" id="input-num">
+        <button onclick="adicionarNumero()" class="btn">Adicionar</button>
+        <p>Array de números: []</p>
+    </div>
+    <div class="caixa azul">
+        Reduzir valores com: 
+        <button onclick="soma()" class="btn">Soma</button>
+        <button onclick="somaPares()" class="btn">Soma pares</button>
+        <button onclick="multiplicacao()" class="btn">Multiplicação</button>
+        <button onclick="dobro()" class="btn">Dobro</button>
+    </div>
+    <div class="caixa vermelha">Resultado:</div>
+</body>
+<script>
+    const arrayNums = [];
+    const caixaArray = document.querySelector(".verde");
+    const pArray = document.querySelector("p");
+    const inputNum = document.querySelector("#input-num");
+    const caixaResult = document.querySelector(".vermelha");
+
+    function soma(){
+        caixaResult.innerHTML = "Resultado: ";
+        const soma =  arrayNums.reduce((anterior, atual) =>{
+            caixaResult.innerHTML += `</br>${anterior} + ${atual} = ${anterior + atual}`;
+        anterior + atual;
+        return anterior + atual;
+    });
+    caixaResult.innerHTML += "</br>Total soma: " + soma;
+    }
+
+    function somaPares(){
+        caixaResult.innerHTML = "Resultado: ";
+        const soma = arrayNums.reduce((anterior, atual)=>{
+            if(atual % 2 === 0){
+                caixaResult.innerHTML += `</br>${anterior} + ${atual} = ${anterior + atual}`;
+                return anterior + atual;  
+            }
+            return anterior; // não soma o anterior se for ímpar
+        }, 0); // 0 é o valor inicial do acumulador para soma começar com par e somar apenas pares
+        caixaResult.innerHTML += "</br>Total soma dos pares: " + soma;
+    }
+
+    function multiplicacao(){
+        caixaResult.innerHTML = "Resultado: ";
+        const multip = arrayNums.reduce((anterior, atual)=>{
+            caixaResult.innerHTML += `</br>${anterior} x ${atual} = ${anterior * atual}`;
+            return anterior * atual;
+        });
+        caixaResult.innerHTML += "</br>Total multiplicação: " + multip;
+    }
+
+    function dobro(){
+        caixaResult.innerHTML = "Resultado: ";
+        arrayNums.reduce((anterior, atual) => {
+            caixaResult.innerHTML += `</br>${atual} x 2 = ${atual * 2}`;
+        });
+   }
+
+    function adicionarNumero(){
+        const num = Number(inputNum.value);
+        if(inputNum.value !== "" && !isNaN(num)){
+            arrayNums.push(num);
+            pArray.innerHTML = "Array de números: [" + arrayNums + "]";
+        }
+        else{
+            window.alert("Insira um número.")
+        }
+    }
+</script>
+</html>

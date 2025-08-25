@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo some</title>
+    <style>
+        .caixa{
+            border: solid 3px;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 3px;
+        }
+        .azul{
+            background-color: #a7a7eb;
+            color: #050546;
+        }
+        .verde{
+            background-color: #a9e6a9;
+            color: #044104;
+        }
+        .vermelha{
+            background-color: #dfa1a1;
+            color: #520606;
+        }
+        .btn{
+            border-style: none;
+            background-color: #050546;
+            border-radius: 5px;
+            color: white;
+            padding: 5px;
+        }
+        .btn:active{
+            background-color: #0f0f6698;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa verde">
+        <input type="number" min="0" id="input-idade">
+        <button onclick="adicionarIdade()" class="btn">Adicionar idade</button>
+        <p>Array de idades: []</p>
+    </div>
+    <div class="caixa azul">
+        <p>
+            Verficar se há ao menos um menor de idade:
+            <button onclick="verificarMenor()" class="btn">Verificar menor</button>
+        </p>
+        <p>
+            Verificar se há ao menor um maior de idade: 
+            <button onclick="verificarMaior()" class="btn">Verificar maior</button>
+        </p>
+    </div>
+    <div class="caixa vermelha">Resultado:</div>
+</body>
+<script>
+    const arrayIdades = [];
+    const caixaArray = document.querySelector(".verde");
+    const pArray = document.querySelector("p");
+    const inputIdade = document.querySelector("#input-idade");
+    const caixaResult = document.querySelector(".vermelha");
+
+    function verificarMenor(){
+        const temMenor = arrayIdades.some(idade => idade < 18);
+        if(arrayIdades.length > 0){
+            if(temMenor){
+                caixaResult.innerHTML = "Resultado: Há menores de idade."; 
+            }
+            else{
+                caixaResult.innerHTML = "Resultado: Nenhum menor encontrado."; 
+            }
+        }
+        else{
+            window.alert("O array está vazio.");
+        }
+    }
+
+    function verificarMaior(){
+        const temMaior = arrayIdades.some(idade => idade >= 18);
+        if(arrayIdades.length > 0){
+            if(temMaior){
+                caixaResult.innerHTML = "Resultado: Há maiores de idade."; 
+            }
+            else{
+                caixaResult.innerHTML = "Resultado: Nenhum maior encontrado."; 
+            }
+        }
+        else{
+            window.alert("O array está vazio.");
+        }
+    }
+
+    function adicionarIdade(){
+        const idade = Number(inputIdade.value);
+        if(inputIdade.value !== "" && !isNaN(idade)){
+            arrayIdades.push(idade);
+            pArray.innerHTML = "Array de idades: [" + arrayIdades + "]";
+        }
+        else{
+            window.alert("Insira uma idade.")
+        }
+    }
+</script>
+</html>
