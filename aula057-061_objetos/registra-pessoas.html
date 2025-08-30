@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra pessoas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html{
+            height: 100vh;
+            width: 100vw;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            flex-flow: column nowrap;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+        }
+        .registro, .lista-pessoas{
+            padding: 20px;
+            margin: 5px;
+            border: solid 2px black;
+            background-color: #c5ccd8;
+            width: 300px;
+        }
+        h1{
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .registro div{
+            margin-bottom: 15px;
+        }
+        .registro input[type="text"]{
+            display: block;
+            padding: 5px;
+            width: 100%;
+            border: 2px solid gray;
+        }
+        .btn-registrar{
+            display: block;
+            border: none;
+            background-color: gray;
+            color: #fff;
+            padding: 10px;
+            margin: auto;
+            width: 100%;
+        }
+        .btn-registrar:active{
+            background-color: #ffff7c;
+        }
+        .caixa-pessoa{
+            width: 100%;
+            background-color: #fff;
+            border: solid 1px black;
+            padding: 10px;
+        }
+        .caixa-pessoa h2, p{
+            margin-bottom: 5px;
+        }
+        .lista-pessoas{
+            overflow: auto;
+        }
+        .lista-pessoas::webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="registro">
+        <h1>Registro de pessoas</h1>
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" required>
+        </div>
+        <div>
+            <label for="idade">Idade: </label>
+            <input type="text" id="idade" required>
+        </div>
+        <div>
+            <label for="peso">Peso: </label>
+            <input type="text" id="peso" required>
+        </div>
+        <button class="btn-registrar">Adicionar</button>
+    </div>
+    <div class="lista-pessoas">
+        <h1>Lista de pessoas</h1>
+    </div>
+</body>
+<script>
+    const caixaListaP = document.querySelector(".lista-pessoas");
+    const btnReg = document.querySelector(".btn-registrar");
+    const entradaNome = document.querySelector("#nome");
+    const entradaIdade = document.querySelector("#idade");
+    const entradaPeso = document.querySelector("#peso");
+    const vetorP = [];
+    
+    class Pessoa{
+        constructor(nome, idade, peso){
+            this.nome = nome;
+            this.idade = idade;
+            this.peso = peso;
+        }
+        getNome(){
+            return this.nome;
+        }
+        setNome(nome){
+            this.nome = nome;
+        }
+        getIdade(){
+            return this.idade;
+        }
+        setNome(idade){
+            this.idade = idade;
+        }
+        getPeso(){
+            return this.peso;
+        }
+        setNome(nome){
+            this.peso = peso;
+        }
+        getInfo(){
+            return `Nome: ${this.getNome()} \nIdade: ${this.getIdade()} \nPeso: ${this.getPeso()}Kg`;
+        }
+    }
+
+    function adicionarPessoa(p){
+        const caixaPessoa = document.createElement("div");
+        const h2Nome = document.createElement("h2");
+        const descricao = document.createElement("div");
+        const paragIdade = document.createElement("p");
+        const paragPeso = document.createElement("p");
+
+        h2Nome.innerText = p.nome;
+        paragIdade.innerHTML = `Idade: ${p.idade}.`;
+        paragPeso.innerHTML = `Peso: ${p.peso}kg.`;
+        descricao.appendChild(paragIdade);
+        descricao.appendChild(paragPeso);
+        caixaPessoa.appendChild(h2Nome);
+        caixaPessoa.appendChild(descricao);
+
+        caixaPessoa.setAttribute("class", "caixa-pessoa");
+        caixaListaP.appendChild(caixaPessoa);
+
+    }
+
+    btnReg.addEventListener("click",()=>{
+        let nome = entradaNome.value;
+        let idade = Number(entradaIdade.value);
+        let peso = Number(entradaPeso.value);
+        
+        const p = new Pessoa(nome, idade, peso);
+        vetorP.push(p);
+        adicionarPessoa(p);
+
+        entradaNome.value = '';
+        entradaIdade.value = '';
+        entradaPeso.value = '';
+
+        console.log("Novo objeto: \n" + p.getInfo());
+        console.log("Objetos adicionados: ");
+        console.log(vetorP);
+    });
+</script>
+</html>

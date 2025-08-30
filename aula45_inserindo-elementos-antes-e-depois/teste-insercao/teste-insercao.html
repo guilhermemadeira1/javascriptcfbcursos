@@ -44,7 +44,7 @@
         label.textContent = nome;
 
         divCurso.appendChild(radio);
-        divCurso.appendChild(label);
+        divCurso.appendChild(label); // label é o nextSibling do radio no DOM pois foi adicionado depois dele
         divCurso.addEventListener("click", (evt)=>{
             //marca o radio ao clicar no conteiner
             //evt.target -> elemento alvo do evento, a div curso no caso

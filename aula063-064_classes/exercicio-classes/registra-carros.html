@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra carros</title>
+    <link rel="stylesheet" href="registra-carros.css">
+    <script src="registra-carros.js" type="module" defer></script> 
+    <!--
+        type="module" faz com que o navegador trate o script como modular e
+        permita o uso de import ou export. Sem isso, o navegador não executa o 
+        script linkado no html se tiver import ou export.
+
+        a propriedade defer faz com que a página execute o script após renderizar
+        o DOM completamente. 
+    -->
+</head>
+<body>
+    <div class="registro">
+        <h1>Registro de carros</h1>
+        <div class="campos">
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome">
+            </div>
+            <div>
+                <label for="portas">Portas: </label>
+                <input type="number" id="portas" value="0" min="0" max="6">
+            </div>
+            <div>
+                <label for="cor">Cor: </label>
+                <select id="cor">
+                    <option value="Branco" data-codigo-cor="#fff" data-cor-tipo="homogenea">Branco</option>
+                    <option value="Preto" data-codigo-cor="#3d3d3dff" data-cor-tipo="homogenea">Preto</option>
+                    <option value="Azul" data-codigo-cor="#7a7ae7ff" data-cor-tipo="homogenea">Azul</option>
+                    <option value="Vermelho" data-codigo-cor="#e97e7eff" data-cor-tipo="homogenea">Vermelho</option>
+                    <option value="Verde" data-codigo-cor="#0f05" data-cor-tipo="homogenea">Verde</option>
+                    <option value="Camuflado" data-codigo-cor="linear-gradient(180deg, #83c775ff, #bb7f63ff)" data-cor-tipo="gradiente">Camuflado</option>
+                </select>
+                <!--
+                    data-* -> define um atributo personalizado para armazenar dados em
+                    elementos html, seguindo a sintaxe: 
+
+                    <div data-minha-chave="valor"></div>
+                    
+                    onde "data-" é um prefixo obrigatório para definir o atributo personalizado, 
+                    "minha-chave" é a chave de acesso ao dado e "valor" é o dado armazenado.
+
+                    Para acessar via js:
+
+                    const el = document.querySelector('div[data-minha-chave="valor"]');
+                    const elDado = el.dataset.minhaChve; // js converte o nome do atributo em camelCase
+
+                    dataset é uma prorpriedade com um objeto que armazena pares chave e valor
+                    dos atributos data-*.
+
+                    Para acessar via css:
+
+                    div[data-minha-chave="valor"]{}
+                .
+                -->
+            </div>
+            <div>
+                <label for="blindagem">Blindagem: </label>
+                <input type="number" id="blindagem" value="0" min="0" step="5" disabled>
+            </div>
+            <div>
+                <label for="municao">Munição: </label>
+                <input type="number" id="municao" value="0" min="0" step="50" disabled>
+            </div>
+           
+        </div>
+        <div class="tipos">
+            <h2>Tipo do carro</h2>
+            <div>
+                <label for="r-normal">Normal: </label>
+                <input type="radio" name="tipo" id="r-normal" value="normal" checked>
+            </div>
+            <div>
+                <label for="r-militar">Militar: </label>
+                <input type="radio" name="tipo" id="r-militar" value="militar">
+            </div>
+            <div>
+                <label for="r-formula1">Formula1: </label>
+                <input type="radio" name="tipo" id="r-formula1" value="formula1">
+            </div>
+        </div>
+        <div class="botoes">
+            <button class="btn btn-registrar">Adicionar</button>
+        </div>
+    </div>
+    <div class="lista-carros">
+        <h1>Lista de carros</h1>
+    </div>
+</body>
+</html>
