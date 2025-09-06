@@ -5,7 +5,10 @@ Escopo de variáveis e constantes em Javascript
 
 *Constante* -> espaço de memória RAM com valor que, uma vez definido, não pode ser atualizado em tempo de execução.
 
-*var* -> variável com escopo global, a variável pode ser acessada por instruções de qualquer escopo ou bloco de código. Quando uma variável var é declarada, seu escopo fica acima do escopo das outras instruções.
+*var* -> variável com escopo global, a variável pode ser acessada por instruções de qualquer escopo ou bloco de código. Quando uma variável var é declarada, seu escopo fica acima do escopo das outras instruções. 
+
+OBS: Quando o var é declarado dentro de uma função, a variável tem escopo de função.
+OBS: A variável var pode ser redeclarada em seu escopo, mas let e const não.
       
       if(true){
           if(true){
@@ -17,8 +20,8 @@ Escopo de variáveis e constantes em Javascript
        console.log("Escopo1: "+ v);
 
 Saída:  Escopo3: OK
-             Escopo2: OK
-             Escopo1: OK
+        Escopo2: OK
+        Escopo1: OK
 
 Uma variável var pode ser acessada antes de ser declarada sem erro de referência, entretanto, o valor retornado pela variável será *undefined*(não definido).
 
@@ -26,7 +29,7 @@ Uma variável var pode ser acessada antes de ser declarada sem erro de referênc
      var n = 1;
      console.log(n) -> 1
 
-*let* -> variável com escopo de bloco, a variável só pode ser acessada por instruções inseridas no mesmo escopo ou posterior (mais específico). 
+*let* -> variável com escopo de bloco, a variável só pode ser acessada por instruções inseridas no mesmo bloco ou em bloco posterior à declaração. 
 
       if(true){
           if(true){
@@ -38,13 +41,13 @@ Uma variável var pode ser acessada antes de ser declarada sem erro de referênc
        console.log("Escopo1: "+ v);
 
 Saída:  Escopo3: OK
-             ERROR! ReferenceError: "v" is not defined
+        ERROR! ReferenceError: "v" is not defined
 
-*const* -> constante com escopo de bloco. Assim como a variável let, uma constante em js não pode ser acessada por uma instrução inserida num bloco anterior ao escopo da mesma.
+*const* -> constante com escopo de bloco. Assim como a variável let, uma constante em js não pode ser acessada por uma instrução inserida num bloco anterior à declaração.
 
 Conceitos relacionados:
 
 *Erro de referência* -> Caso uma variável *let* ou *const* for acessada num escopo anterior ou numa linha anterior à sua declaração, será lançado um erro de referência.
 
-*Hoisting* -> Em JavaScript, é o conceito associado ao mecanismo que define o escopo de *funções declaradas com "function" fora de outros blocos* e *variáveis var* acima do escopo das outras instruções durante a execução do programa. Esse recurso permite acessar uma função function ou variável var numa linha anteriora à sua declaração sem que ocorra erro de referência.
+*Hoisting* -> Em JavaScript, é o conceito associado ao mecanismo que define o escopo de *funções (declaradas com "function") fora de outros blocos* e *variáveis var* acima do escopo das outros blocos durante a execução do programa. Esse recurso permite acessar uma função function ou variável var numa linha anteriora à sua declaração sem que ocorra erro de referência.
 */

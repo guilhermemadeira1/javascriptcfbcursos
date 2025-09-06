@@ -16,7 +16,7 @@ for of -> Itera sobre os elementos de coleções.*/
 let nums2 = [1,2,3]
 
 for(n of nums2){
-    console.log(n+""+typeof(n));
+    console.log(n+" "+typeof(n));
 }
 /*
 Saída: 1 number

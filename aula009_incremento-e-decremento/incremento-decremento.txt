@@ -42,7 +42,7 @@ console.log(10+20+"");  -> "1020"
 
 Operador de inversão 
 
-O operador aritmético de subtração (-) quando utilizado isoladamente atua invertendo um número para seu valor invertido.
+O operador aritmético de subtração (-) quando utilizado isoladamente atua convertendo um número para seu valor invertido.
 
 let n1 = 20;
 let n2 = -1;

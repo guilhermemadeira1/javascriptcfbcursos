@@ -161,4 +161,6 @@ console.log("Peso: " + p3.peso + "\n");
 
 /*
 OBS: Arrow function não tem this próprio, isso significa que não podem ser usadas como funções construtoras e nem acessar atributos dela. 
+
+Funções anônimas (declaradas com function) acessam o próprio escopo com this.
 */

@@ -35,12 +35,13 @@ Formas de declarar uma arrow function:
  imprimeCinco(); //-> 5
  console.log(retornaDobro(6)); //-> 12
 
- /*
-OBS: O this nas arrow functions aponta para o escopo léxico (escrita) onde ela foi declarada.
-Ou seja, ela herda o this do escopo imediatamente acima dela.Se for declarada dentro de uma
-classe, herda o this da classe, se não herda o escopo acima como o window nos navegadores
-ou global no node js. 
+/*
+    OBS: O this nas arrow functions aponta para o escopo léxico (escrita) onde ela foi declarada.
+    Ou seja, ela herda o this do escopo imediatamente acima dela.Se for declarada dentro de uma
+    classe, herda o this da classe, se não herda o escopo acima como o window nos navegadores
+    ou global no node js. 
 
-Arrow functions não tem this próprio, isso significa que não é possível acessar atributos de uma arrow function criada como
-função construtora.
+    Arrow functions não tem this próprio, isso significa que não é possível acessar atributos de uma arrow function criada como função construtora.
+
+    Funções anônimas (declaradas com function) acessam seu próprio escopo com this.
 */

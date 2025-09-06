@@ -6,7 +6,7 @@ A herança é aplicada pela classe derivada (subclasse) usando a palavra extends
 O método super() permite que a classe derivada acesse o construtor da classe pai. 
 A propriedade super permite acessar metodos e atributos da classe pai.
 
-super() -> acessa o construtor da superclasse (classe base).
+super() -> acessa o construtor da superclasse (classe base). OBS: o metodo super() deve ser chamado antes de acessar a propriedade this se não dá erro de referência
 
 super.metodo() -> acessa o método da superclasse quando a subclasse modificar esse método.
 

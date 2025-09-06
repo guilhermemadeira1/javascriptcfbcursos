@@ -1,7 +1,7 @@
 /*
 Método stopPropagation 
 
-Quando um evento é disparado sobre um elemento contêiner, o evento também é propagado para outros elementos na árvore DOM. O método *stopPropagation()*, executado pelo objeto que dispara o evento, permite interromper a propagação do evento para os filhos sempre que este for disparado.
+Quando um evento é disparado sobre um elemento contêiner, o evento também é propagado para outros elementos na árvore DOM. O método *stopPropagation()*, executado pelo objeto que dispara o evento, permite interromper a propagação do evento para os filhos.
 
 Ex: 
 */

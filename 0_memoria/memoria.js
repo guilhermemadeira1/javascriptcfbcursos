@@ -1,8 +1,8 @@
 /*
 
-Em js, objetos (literais ou não) e funções são armazenadas como referências para um espaço em memória (ponteiros), enquanto dados primitivos como strings, números e boleanos são copiados para espaços de memória diferentes. 
+Em js, objetos (literais ou não) e funções são armazenados como referências para um espaço em memória (ponteiros), enquanto dados primitivos como strings, números e boleanos são copiados para espaços de memória diferentes. 
 
-Dados primitivos são tipos imutáveis, por isso são copiados. Funções e objetos são tipos mutáveis, pois permitem que modificar o mesmo dado usando múltiplas variáveis. 
+Dados primitivos são tipos imutáveis, por isso são copiados. Funções e objetos são tipos mutáveis, pois permitem modificar o mesmo dado usando múltiplas variáveis. 
 
 Dados primitivos: number, string, boolean, null, undefined, symbol e bigint.
 
